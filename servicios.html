@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suadeo – Servicios</title>
+  <link rel="stylesheet" href="https://use.typekit.net/wvi3ifl.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "neue-haas-grotesk-text", sans-serif; font-weight: 400; color: #1c1c1e; background: #fff; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    nav {background:rgba(248,249,251,0.72);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4); display: flex; align-items: center; justify-content: space-between; padding: 32px 120px; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 0 #eaecf0; }
+    .nav-logo img { height: 40px; display: block; }
+    .nav-right { display: flex; align-items: center; gap: 32px; }
+    .nav-menu { display: flex; align-items: center; list-style: none; }
+    .nav-menu li { display: flex; align-items: center; }
+    .nav-menu a { font-size: 18px; line-height: 26px; color: #011128; font-weight: 400; padding: 0 12px; white-space: nowrap; transition: color .2s; }
+    .nav-menu a:hover { color: #0963ed; font-weight: 400; }
+    .nav-menu a.active { color: #011128; font-weight: 500; }
+    .nav-sep { width: 1px; height: 20px; background: #c8ccd4; }
+    .btn-nav { background: #011128; color: #f8f9fb; font-family: "neue-haas-grotesk-text", sans-serif; font-size: 18px; font-weight: 500; line-height: 26px; padding: 16px 24px; border: none; cursor: pointer; display: inline-block; white-space: nowrap; transition: background .2s, color .2s; }
+    .btn-nav:hover { background: #0963ed; color: #fff; }
+    .btn-light { background: #f8f9fb; color: #011128; font-family: "neue-haas-grotesk-text", sans-serif; font-size: 18px; font-weight: 500; line-height: 26px; padding: 16px 24px; border: none; cursor: pointer; display: inline-block; white-space: nowrap; transition: background .2s, color .2s; }
+    .btn-light:hover { background: #0963ed; color: #fff; }
+    .btn-dark { background: #011128; color: #f8f9fb; font-family: "neue-haas-grotesk-text", sans-serif; font-size: 18px; font-weight: 500; line-height: 26px; padding: 16px 24px; border: none; cursor: pointer; display: inline-block; white-space: nowrap; transition: background .2s, color .2s; }
+    .btn-dark:hover { background: #0963ed; color: #fff; }
+    .hero { position: relative; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 24px; padding: 64px 120px; overflow: hidden; min-height:400px }
+    .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; pointer-events: none; }
+    .hero-body { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 16px; color: #f8f9fb; }
+    .hero-body h1 { font-family:"interstate",sans-serif,sans-serif, sans-serif; font-weight: 400; font-size: 40px; line-height: 48px; max-width: 519px; }
+    .hero-body p { font-size: 18px; line-height: 26px; max-width: 542px; }
+    .btn-hero-wrap { position: relative; z-index: 1; }
+    .servicios-list { display: flex; flex-direction: column; }
+    .servicio-row{display:flex;align-items:center;justify-content:center;padding:80px 120px;gap:120px}
+    .servicio-row.reverse { flex-direction: row-reverse; }
+    .servicio-text { display: flex; flex-direction: column; gap: 8px; max-width: 521px; flex-shrink: 0; }
+    .servicio-text h2 { font-family:"interstate",sans-serif,sans-serif, sans-serif; font-weight: 700; font-size: 24px; line-height: 32px; color: #011128; }
+    .servicio-text p { font-size: 18px; line-height: 26px; color: #1c1c1e; }
+    .servicio-img-wrap { width: 583px; height:340px; flex-shrink: 0; overflow: hidden; position: relative; cursor: default; }
+    .servicio-img-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform .4s cubic-bezier(.34,1.56,.64,1); }
+    .servicio-img-wrap:hover img { transform: translateY(-6px) scale(1.04); }
+    .row-divider { height: 1px; background: #eaecf0; margin: 0 120px; }
+    .metodo{background:#eaecf0;padding:120px 120px;display:flex;flex-direction:column;align-items:center;gap:64px}
+    .metodo-header { display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; }
+    .metodo-header h2 { font-family:"interstate",sans-serif,sans-serif, sans-serif; font-weight: 400; font-size: 40px; line-height: 48px; color: #011128; max-width: 592px; }
+    .metodo-header p { font-size: 18px; line-height: 26px; color: #011128; max-width: 882px; text-align: center; }
+    .metodo-steps{display:flex;align-items:flex-start;justify-content:center;gap:96px;width:100%}
+    .metodo-step{display:flex;flex-direction:column;gap:24px;width:280px}
+    .step-num img{width:34px;height:34px;display:block}
+    .step-text{display:flex;flex-direction:column;gap:8px;width:300px}
+    .step-text h3{font-family:"interstate",sans-serif;font-weight:700;font-size:24px;line-height:32px;color:#011128;white-space:nowrap;width:300px}
+    .step-text p{font-family:"neue-haas-grotesk-text",sans-serif;font-size:18px;line-height:26px;color:#011128;width:300px}
+    .cta-bottom { display: flex; align-items: stretch; }
+    .cta-bottom-photo { width: 744px; flex-shrink: 0; overflow: hidden; position: relative; min-height:560px }
+    .cta-bottom-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .cta-bottom-text { display: flex; flex-direction: column; gap: 32px; padding:100px 120px 100px 80px; flex: 1; justify-content: center; }
+    .cta-bottom-text h2 { font-family:"interstate",sans-serif,sans-serif, sans-serif; font-weight: 400; font-size: 32px; line-height: 40px; color: #011128; max-width: 520px; }
+    .cta-bottom-text p { font-size: 18px; line-height: 26px; color: #1c1c1e; max-width: 478px; }
+    footer { background: #011128; display: flex; flex-direction: column; gap: 32px; padding: 72px 120px 48px; }
+    .footer-top { display: flex; align-items: flex-start; justify-content: space-between; }
+    .footer-brand { display: flex; flex-direction: column; gap: 32px; width: 320px; }
+    .footer-logo img { height: 52px; display: block; }
+    .footer-tagline { font-size: 18px; line-height: 26px; color: #f8f9fb; white-space: nowrap; }
+    .footer-links { display: flex; gap: 100px; align-items: flex-start; }
+    .footer-col { display: flex; flex-direction: column; gap: 24px; }
+    .footer-col a { font-size: 18px; line-height: 26px; color: #f8f9fb; transition: color .2s; }
+    .footer-col a:hover { color: #0963ed; }
+    .footer-divider { width: 100%; height: 1px; background: rgba(255,255,255,.15); }
+    .footer-copy { font-size: 18px; line-height: 26px; color: #eaecf0; text-align: center; }
+    .footer-copy strong { font-weight: 500; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #011128; }
+    .mobile-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #f8f9fb; padding: 24px 24px 32px; flex-direction: column; box-shadow: 0 8px 32px rgba(0,0,0,0.12); z-index: 99; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-size: 18px; line-height: 26px; color: #011128; padding: 14px 0; border-bottom: 1px solid #eaecf0; }
+    .mobile-nav a:hover { color: #0963ed; }
+    .mobile-nav .btn-nav { margin-top: 20px; text-align: center; width: 100%; display: block; }
+    @media (max-width: 1100px) { nav { padding: 24px 40px; } .hero { padding: 48px 40px;min-height:400px } .servicio-row{display:flex;align-items:center;justify-content:center;padding:80px 120px;gap:120px} .row-divider { margin: 0 40px; } .metodo{background:#eaecf0;padding:120px 120px;display:flex;flex-direction:column;align-items:center;gap:64px} .cta-bottom-photo { width: 400px; } .cta-bottom-text { padding:100px 120px 100px 80px; } footer { padding: 56px 40px 40px; } }
+    @media (max-width: 900px) { .servicio-row, .servicio-row.reverse { flex-direction: column; } .servicio-text { max-width: 100%; } .servicio-img-wrap { width: 100%; } .metodo-steps{display:flex;align-items:flex-start;justify-content:center;gap:96px;width:100%} .metodo-step{display:flex;flex-direction:column;gap:24px;width:280px} .cta-bottom { flex-direction: column; } .cta-bottom-photo { width: 100%; min-height:560px } .cta-bottom-text { padding:100px 120px 100px 80px; } }
+    @media (max-width: 768px) { nav { padding: 20px 24px; position: relative; } .nav-right { display: none; } .hamburger { display: flex; } .hero { padding: 40px 24px;min-height:400px } .hero-body h1 { font-size: 28px; line-height: 36px; } .servicio-row{display:flex;align-items:center;justify-content:center;padding:80px 120px;gap:120px} .row-divider { margin: 0 24px; } .metodo{background:#eaecf0;padding:120px 120px;display:flex;flex-direction:column;align-items:center;gap:64px} .metodo-header h2 { font-size: 28px; line-height: 36px; } footer { padding: 48px 24px 40px; } .footer-top { flex-direction: column; gap: 40px; } .footer-brand { width: 100%; } .footer-links { flex-direction: column; gap: 32px; } .footer-tagline { white-space: normal; } }
+  
+footer{
+  background:#011128;
+  display:flex;flex-direction:column;gap:32px;
+  padding:72px 120px 48px;
+}
+.footer-top{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  width:100%;
+}
+.footer-brand{
+  display:flex;flex-direction:column;gap:32px;
+  width:329px;flex-shrink:0;
+}
+.footer-logo img,.footer-logo svg{ height:53px;display:block; }
+.footer-tagline{
+  font-size:18px;line-height:26px;color:#f8f9fb;white-space:nowrap;
+}
+.footer-nav-links{
+  display:flex;gap:24px;align-items:center;
+}
+.footer-nav-links a{
+  font-size:18px;line-height:26px;color:#f8f9fb;
+  transition:color .2s;white-space:nowrap;
+}
+.footer-nav-links a:hover{ color:#0963ed; }
+.footer-divider{ width:100%;height:1px;background:rgba(255,255,255,.15); }
+.footer-copy{ font-size:18px;line-height:26px;color:#eaecf0;text-align:center; }
+.footer-copy strong{ font-weight:500; }
+
+
+nav.scrolled{background:rgba(248,249,251,0.88);box-shadow:0 2px 16px rgba(0,0,0,0.10);}
+.nav-link.active{color:#0963ed!important}
+.nav-link{color:#1c1c1e;font-family:"neue-haas-grotesk-text",sans-serif;font-size:18px;font-weight:400;line-height:26px;transition:color .2s}
+.nav-link:hover{color:#0963ed}
+.nav-link.active{color:#0963ed}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo"><a href="index.html"><img src="images/Logo-header.svg" alt="Suadeo"/></a></div>
+  <div class="nav-right">
+    <ul class="nav-menu">
+      <li><a href="index.html" class="nav-link">Inicio</a></li>
+      <li><span class="nav-sep"></span></li>
+      <li><a href="servicios.html" class="active">Servicios</a></li>
+      <li><span class="nav-sep"></span></li>
+      <li><a href="quienes-somos.html" class="nav-link">Quiénes somos</a></li>
+      <li><span class="nav-sep"></span></li>
+      <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+    </ul>
+    <a href="contacto.html" class="btn-nav">Solicitar asesoría</a>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html" class="nav-link">Inicio</a>
+    <a href="servicios.html" class="nav-link active">Servicios</a>
+    <a href="quienes-somos.html" class="nav-link">Quiénes somos</a>
+    <a href="contacto.html" class="nav-link">Contacto</a>
+    <a href="contacto.html" class="btn-nav">Solicitar asesoría</a>
+  </div>
+</nav>
+<section class="hero">
+  <img class="hero-bg" src="images/Hero.webp" alt=""/>
+  <div class="hero-body">
+    <h1>Soluciones diseñadas para tu seguridad corporativa</h1>
+    <p>Cada organización enfrenta riesgos únicos. En Suadeo combinamos experiencia, tecnología y un enfoque consultivo para anticipar amenazas y proteger la continuidad de tu negocio.</p>
+  </div>
+  <div class="btn-hero-wrap"><a href="contacto.html" class="btn-light">Solicitar asesoría</a></div>
+</section>
+<div class="servicios-list">
+  <div class="servicio-row">
+    <div class="servicio-text"><h2>Protección SAP</h2><p>Controlamos accesos, roles y segregación de funciones en entornos SAP ERP para cumplir con normativas internacionales. Nuestro enfoque minimiza riesgos de fraude, garantiza transparencia en procesos críticos y asegura que tu organización esté preparada para auditorías y regulaciones cada vez más exigentes.</p></div>
+    <div class="servicio-img-wrap"><img src="images/Proteccion_SAP.webp" alt="Protección SAP"/></div>
+  </div>
+  <div class="row-divider"></div>
+  <div class="servicio-row reverse">
+    <div class="servicio-text"><h2>Seguridad IT Integral</h2><p>Diseñamos estrategias completas para proteger tu infraestructura tecnológica: redes, servidores, aplicaciones y entornos en la nube. Integramos políticas de prevención, monitoreo continuo y respuesta ágil para que la seguridad sea parte natural de la operación de tu empresa, sin frenar la innovación ni la productividad.</p></div>
+    <div class="servicio-img-wrap"><img src="images/Seguridad_IT_integral.webp" alt="Seguridad IT Integral"/></div>
+  </div>
+  <div class="row-divider"></div>
+  <div class="servicio-row">
+    <div class="servicio-text"><h2>Auditorías &amp; Cumplimiento ISAE</h2><p>Elaboramos informes claros y confiables bajo estándares internacionales ISAE, que validan la seguridad de tus sistemas frente a reguladores, clientes y stakeholders. Nuestra auditoría no solo detecta brechas, sino que entrega recomendaciones prácticas que fortalecen tu reputación y credibilidad en el mercado.</p></div>
+    <div class="servicio-img-wrap"><img src="images/Auditorias_Cumplimiento_ISAE.webp" alt="Auditorías y Cumplimiento ISAE"/></div>
+  </div>
+  <div class="row-divider"></div>
+  <div class="servicio-row reverse">
+    <div class="servicio-text"><h2>Planes de Recuperación (DRP)</h2><p>Ayudamos a tu organización a prepararse ante lo inesperado con planes de continuidad operativa y recuperación ante desastres. Desde fallas de infraestructura hasta ciberataques masivos, diseñamos escenarios de contingencia que reducen tiempos de inactividad y garantizan la resiliencia de tu negocio.</p></div>
+    <div class="servicio-img-wrap"><img src="images/Planes_recuperacion_DRP.webp" alt="Planes de Recuperación DRP"/></div>
+  </div>
+  <div class="row-divider"></div>
+  <div class="servicio-row">
+    <div class="servicio-text"><h2>Evaluación de Vulnerabilidades</h2><p>Realizamos pruebas controladas que emulan el accionar de atacantes reales para detectar vulnerabilidades antes de que sean explotadas. Nuestro equipo de expertos identifica puntos débiles y propone medidas concretas, permitiendo reforzar tu seguridad de forma proactiva y efectiva.</p></div>
+    <div class="servicio-img-wrap"><img src="images/evaluacion_vulnerabilidades.webp" alt="Evaluación de Vulnerabilidades"/></div>
+  </div>
+  <div class="row-divider"></div>
+  <div class="servicio-row reverse">
+    <div class="servicio-text"><h2>Informática Forense</h2><p>Brindamos análisis especializado para obtener y preservar evidencias digitales válidas en procesos legales o investigaciones internas. Nuestras metodologías permiten reconstruir incidentes de seguridad, identificar responsables y asegurar que la información recolectada sea confiable y admisible.</p></div>
+    <div class="servicio-img-wrap"><img src="images/Informatica_forense.webp" alt="Informática Forense"/></div>
+  </div>
+</div>
+<section class="metodo">
+  <div class="metodo-header">
+    <h2>Nuestro método de trabajo</h2>
+    <p>En Suadeo entendemos que cada organización enfrenta riesgos únicos. Por eso desarrollamos estrategias a medida que combinan experiencia, conocimiento técnico y cercanía con el cliente.</p>
+  </div>
+  <div class="metodo-steps">
+    <div class="metodo-step">
+      <div class="step-num"><img src="images/1.webp" alt="1"/></div>
+      <div class="step-text"><h3>Análisis inicial</h3><p>Identificamos riesgos, procesos críticos y necesidades estratégicas para comprender en detalle tu negocio y contexto.</p></div>
+    </div>
+    <div class="metodo-step">
+      <div class="step-num"><img src="images/2.webp" alt="2"/></div>
+      <div class="step-text"><h3>Plan estratégico</h3><p>Diseñamos un programa de seguridad personalizado con soluciones prácticas y eficaces adaptadas a tu realidad.</p></div>
+    </div>
+    <div class="metodo-step">
+      <div class="step-num"><img src="images/3.webp" alt="3"/></div>
+      <div class="step-text"><h3>Implementación continua</h3><p>Ejecutamos y monitoreamos junto a tu equipo, asegurando mejoras sostenibles y confianza a largo plazo sostenido.</p></div>
+    </div>
+  </div>
+</section>
+<section class="cta-bottom">
+  <div class="cta-bottom-photo"><img src="images/Image_footer.webp" alt="Empezá a proteger tu empresa hoy"/></div>
+  <div class="cta-bottom-text">
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <h2>Empezá a proteger tu empresa hoy</h2>
+      <p>Conecta con nuestro equipo y descubrí cómo llevar la seguridad de tu negocio al siguiente nivel.</p>
+    </div>
+    <a href="contacto.html" class="btn-dark" style="width:197px;text-align:center">Solicitar asesoría</a>
+  </div>
+</section>
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo"><a href="index.html"><img src="images/Logo-footer.svg" alt="Suadeo"/></a></div>
+      <p class="footer-tagline">Tu socio estratégico en ciberseguridad.</p>
+    </div>
+    <div class="footer-nav-links">
+      <a href="servicios.html">Servicios</a><a href="quienes-somos.html">Quiénes somos</a><a href="contacto.html">Contacto</a>
+    </div>
+  </div>
+  <div class="footer-divider"></div>
+  <p class="footer-copy"><strong>2026 Suadeo</strong> © Todos los derechos reservados.</p>
+</footer>
+<script>function toggleMenu(){document.getElementById('mobileNav').classList.toggle('open');}</script>
+<script>
+window.addEventListener('scroll', function() {
+  document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 10);
+}, {passive: true});
+</script>
+</body>
+</html>

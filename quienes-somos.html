@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Suadeo – Quiénes somos</title>
+<link rel="stylesheet" href="https://use.typekit.net/wvi3ifl.css"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"neue-haas-grotesk-text",sans-serif;font-weight:400;color:#1c1c1e;background:#fff;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+nav{
+  background: rgba(248,249,251,0.72);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:32px 120px;
+  position:sticky;top:0;z-index:100;
+  box-shadow:0 1px 0 rgba(0,0,0,0.07);
+  transition: background .3s ease, box-shadow .3s ease;
+}
+nav.scrolled{
+  background: rgba(248,249,251,0.88);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+}
+.nav-logo img{height:40px;display:block}
+.nav-right{display:flex;align-items:center;gap:32px}
+.nav-menu{display:flex;align-items:center;list-style:none}
+.nav-menu li{display:flex;align-items:center}
+.nav-menu a{font-size:18px;line-height:26px;color:#011128;font-weight:400;padding:0 12px;white-space:nowrap;transition:color .2s}
+.nav-menu a:hover{color:#0963ed}
+.nav-menu a.active{color:#011128;font-weight:500}
+.nav-sep{width:1px;height:20px;background:#c8ccd4}
+.btn-nav{background:#011128;color:#f8f9fb;font-family:"neue-haas-grotesk-text",sans-serif;font-size:18px;font-weight:500;line-height:26px;padding:16px 24px;border:none;cursor:pointer;display:inline-block;white-space:nowrap;transition:background .2s,color .2s}
+.btn-nav:hover{background:#0963ed;color:#fff}
+.btn-dark{background:#011128;color:#f8f9fb;font-family:"neue-haas-grotesk-text",sans-serif;font-size:18px;font-weight:500;line-height:26px;padding:16px 24px;border:none;cursor:pointer;display:inline-block;white-space:nowrap;transition:background .2s,color .2s}
+.btn-dark:hover{background:#0963ed;color:#fff}
+.hero{position:relative;display:flex;flex-direction:column;gap:16px;padding:64px 120px;overflow:hidden;min-height:296px;justify-content:center}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;pointer-events:none}
+.hero-body{position:relative;z-index:1;color:#f8f9fb;display:flex;flex-direction:column;gap:16px}
+.hero-body h1{font-family:"interstate",sans-serif,sans-serif,sans-serif;font-weight:400;font-size:40px;line-height:48px;max-width:507px}
+.hero-body p{font-size:18px;line-height:26px;max-width:587px}
+.mision-vision{display:flex;gap:64px;align-items:stretch;justify-content:center;padding:96px 120px;text-align:center}
+.mv-card{background:#eaecf0;display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center;padding:48px;flex:1;min-height:288px;text-align:center}
+.mv-card h2{font-family:"interstate",sans-serif;font-weight:700;font-size:24px;line-height:32px;color:#011128;text-align:center;width:100%}
+.mv-card p{font-family:"neue-haas-grotesk-text",sans-serif;font-size:18px;line-height:26px;color:#1c1c1e;text-align:center;max-width:380px}
+.valores h2{font-family:"interstate",sans-serif;font-weight:400;font-size:40px;line-height:48px;color:#f8f9fb;text-align:center}
+.valores{background:#011128;display:flex;flex-direction:column;gap:64px;align-items:center;justify-content:center;padding:120px 120px}
+.valores-grid{display:flex;flex-direction:column;gap:64px;width:706px}
+.valores-row{display:flex;gap:64px;align-items:flex-start;width:100%}
+.valor-item{display:flex;flex-direction:column;gap:24px;align-items:center;width:321px;text-align:center;transition:transform .3s ease}
+.valor-item:hover{transform:translateY(-6px)}
+.valor-icon{display:flex;align-items:center;justify-content:center;transition:transform .3s ease}
+.valor-item:hover .valor-icon{transform:scale(1.1)}
+.valor-icon img{width:40px;height:40px;display:block}
+.valor-text h3{font-family:"interstate",sans-serif;font-weight:700;font-size:24px;line-height:32px;color:#f8f9fb}
+.valor-text p{font-size:18px;line-height:26px;color:#f8f9fb;margin-top:8px}
+.equipo{display:flex;flex-direction:column;padding:120px;gap:80px}
+.equipo-header h2{font-family:"interstate",sans-serif,sans-serif,sans-serif;font-weight:400;font-size:32px;line-height:40px;color:#011128}
+.equipo-header p{font-size:18px;line-height:26px;color:#1c1c1e;max-width:576px}
+.equipo-body{display:flex;gap:104px;align-items:flex-start;justify-content:flex-start}
+.persona{display:flex;flex-direction:column;gap:24px;width:367px;flex-shrink:0}
+.persona-foto{width:278px;height:278px;overflow:hidden;flex-shrink:0}
+.persona-foto img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.persona-info{display:flex;flex-direction:column;gap:16px}
+.persona-nombre{font-family:"interstate",sans-serif,sans-serif,sans-serif;font-weight:400;font-size:24px;line-height:32px;color:#011128}
+.persona-cargo{font-size:18px;line-height:26px;color:#686868;font-weight:500}
+.persona-cargo span{font-weight:400}
+.persona-bio{font-size:18px;line-height:26px;color:#1c1c1e}
+
+.cta-bottom{display:flex;align-items:stretch;background:#eaecf0}
+.cta-bottom-text{display:flex;flex-direction:column;gap:32px;padding:100px 120px 100px 80px;flex:1;justify-content:center}
+.cta-bottom-text h2{font-family:"interstate",sans-serif,sans-serif,sans-serif;font-weight:400;font-size:32px;line-height:40px;color:#011128;max-width:520px}
+.cta-bottom-text p{font-size:18px;line-height:26px;color:#1c1c1e}
+.cta-bottom-photo{width:744px;flex-shrink:0;overflow:hidden;position:relative;min-height:560px}
+.cta-bottom-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+
+footer{
+  background:#011128;
+  display:flex;flex-direction:column;gap:32px;
+  padding:72px 120px 48px;
+}
+.footer-top{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  width:100%;
+}
+.footer-brand{
+  display:flex;flex-direction:column;gap:32px;
+  width:329px;flex-shrink:0;
+}
+.footer-logo img,.footer-logo svg{ height:53px;display:block; }
+.footer-tagline{
+  font-size:18px;line-height:26px;color:#f8f9fb;white-space:nowrap;
+}
+.footer-nav-links{
+  display:flex;gap:24px;align-items:center;
+}
+.footer-nav-links a{
+  font-size:18px;line-height:26px;color:#f8f9fb;
+  transition:color .2s;white-space:nowrap;
+}
+.footer-nav-links a:hover{ color:#0963ed; }
+.footer-divider{ width:100%;height:1px;background:rgba(255,255,255,.15); }
+.footer-copy{ font-size:18px;line-height:26px;color:#eaecf0;text-align:center; }
+.footer-copy strong{ font-weight:500; }
+
+
+
+
+
+
+
+50%{opacity:0}}
+
+
+
+
+
+ 50%{opacity:0} }
+
+
+.quote-wrapper{flex:1;padding-top:0px;padding-left:1100px}
+.quote{
+  font-family:"neue-haas-grotesk-text",sans-serif;
+  font-style:italic;
+  font-size:56px;
+  line-height:64px;
+  color:transparent;
+  max-width:1039px;
+  position:relative;
+}
+.quote-hidden{
+  color:transparent;
+  user-select:none;
+  pointer-events:none;
+}
+.quote-overlay{
+  position:absolute;
+  top:0;left:0;
+  color:#0963ed;
+  white-space:pre-wrap;
+  word-break:break-word;
+  max-width:1039px;
+}
+.quote-visible{color:#0963ed}
+.quote-cursor{
+  display:inline-block;
+  color:#0963ed;
+  animation:blink .8s step-end infinite;
+  margin-left:1px;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+.nav-link.active{color:#0963ed!important}
+.nav-link{color:#1c1c1e;font-family:"neue-haas-grotesk-text",sans-serif;font-size:18px;font-weight:400;line-height:26px;transition:color .2s}
+.nav-link:hover{color:#0963ed}
+.nav-link.active{color:#0963ed}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><a href="index.html"><img src="images/Logo-header.svg" alt="Suadeo"/></a></div>
+  <div class="nav-right">
+    <ul class="nav-menu">
+      <li><a href="index.html" class="nav-link">Inicio</a></li>
+      <li><span class="nav-sep"></span></li>
+      <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+      <li><span class="nav-sep"></span></li>
+      <li><a href="quienes-somos.html" class="nav-link active">Quiénes somos</a></li>
+      <li><span class="nav-sep"></span></li>
+      <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+    </ul>
+    <a href="contacto.html" class="btn-nav">Solicitar asesoría</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <img class="hero-bg" src="images/Hero_qs.webp" alt=""/>
+  <div class="hero-body">
+    <h1>Nuestra historia</h1>
+    <p>Suadeo nació con el propósito de brindar soluciones de seguridad que combinan experiencia técnica y visión estratégica. Con raíces en la auditoría y la consultoría internacional, hoy somos referentes en la región por nuestro enfoque cercano y resultados comprobados.</p>
+  </div>
+</section>
+
+<section class="mision-vision">
+  <div class="mv-card">
+    <h2>Misión</h2>
+    <p>Anticipar riesgos, proteger la información crítica y acompañar a cada organización en el diseño de una estrategia de seguridad a largo plazo.</p>
+  </div>
+  <div class="mv-card">
+    <h2>Visión</h2>
+    <p>Ser el socio de referencia en ciberseguridad en Latinoamérica, reconocido por la confianza de nuestros clientes y la calidad de nuestro equipo.</p>
+  </div>
+</section>
+
+<section class="valores">
+  <h2>Nuestros valores</h2>
+  <div class="valores-grid">
+    <div class="valores-row">
+      <div class="valor-item">
+        <div class="valor-icon"><img src="images/Logo_valor.svg" alt=""/></div>
+        <div class="valor-text"><h3>Confianza</h3><p>Creamos relaciones sólidas basadas en transparencia, compromiso y resultados medibles.</p></div>
+      </div>
+      <div class="valor-item">
+        <div class="valor-icon"><img src="images/Logo_valor.svg" alt=""/></div>
+        <div class="valor-text"><h3>Cercanía</h3><p>Colaboramos junto a cada cliente, entendiendo sus necesidades y desafíos reales del negocio.</p></div>
+      </div>
+    </div>
+    <div class="valores-row">
+      <div class="valor-item">
+        <div class="valor-icon"><img src="images/Logo_valor.svg" alt=""/></div>
+        <div class="valor-text"><h3>Experiencia</h3><p>Contamos con un equipo senior que aporta conocimiento profundo y actualizado en seguridad.</p></div>
+      </div>
+      <div class="valor-item">
+        <div class="valor-icon"><img src="images/Logo_valor.svg" alt=""/></div>
+        <div class="valor-text"><h3>Innovación</h3><p>Incorporamos las mejores prácticas globales y las adaptamos al contexto de la región.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="equipo">
+  <div class="equipo-header">
+    <h2>El talento detrás de Suadeo</h2>
+    <p>Nuestro equipo está formado por profesionales senior en ciberseguridad, auditoría e informática forense, con amplia experiencia en consultoras internacionales y corporaciones líderes.</p>
+  </div>
+  <div class="equipo-body">
+    <div class="persona">
+      <div class="persona-foto"><img src="images/Imagen_Miguel.webp" alt="Miguel Timoteo"/></div>
+      <div class="persona-info">
+        <div>
+          <p class="persona-nombre">Miguel Timoteo</p>
+          <p class="persona-cargo">Socio fundador | <span>Director de PwC</span></p>
+        </div>
+        <p class="persona-bio">+25 años de experiencia en ciberseguridad y auditoría de riesgos en empresas líderes de Latinoamérica.</p>
+      </div>
+    </div>
+    <div class="quote-wrapper">
+      <p class="quote" id="scrollQuote">
+  <span class="quote-hidden">"Nuestro compromiso siempre ha sido el mismo: ayudar a las empresas a anticipar riesgos y construir confianza en cada etapa de su crecimiento."</span>
+  <span class="quote-overlay"><span class="quote-visible"></span><span class="quote-cursor">|</span></span>
+</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-bottom">
+  <div class="cta-bottom-text">
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <h2>Tu seguridad empieza aquí</h2>
+      <p>Queremos acompañarte en el diseño de una estrategia sólida y personalizada para proteger lo más valioso de tu empresa.</p>
+    </div>
+    <a href="contacto.html" class="btn-dark" style="width:197px;text-align:center">Solicitar asesoría</a>
+  </div>
+  <div class="cta-bottom-photo"><img src="images/Seguridad_img.webp" alt="Tu seguridad empieza aquí"/></div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo"><a href="index.html"><img src="images/Logo-footer.svg" alt="Suadeo"/></a></div>
+      <p class="footer-tagline">Tu socio estratégico en ciberseguridad.</p>
+    </div>
+    <div class="footer-nav-links">
+      <a href="servicios.html">Servicios</a><a href="quienes-somos.html">Quiénes somos</a><a href="contacto.html">Contacto</a>
+    </div>
+  </div>
+  <div class="footer-divider"></div>
+  <p class="footer-copy"><strong>2026 Suadeo</strong> © Todos los derechos reservados.</p>
+</footer>
+
+<script>
+(function(){
+  const full='“Nuestro compromiso siempre ha sido el mismo: ayudar a las empresas a anticipar riesgos y construir confianza en cada etapa de su crecimiento.”';
+  const visibleEl=document.querySelector('.quote-visible');
+  const cursorEl=document.querySelector('.quote-cursor');
+  const wrapper=document.querySelector('.quote-wrapper');
+  let startY=null,endY=null,ticking=false;
+  function calcBounds(){
+    const rect=wrapper.getBoundingClientRect();
+    const scrollY=window.scrollY;
+    const vh=window.innerHeight;
+    startY=scrollY+rect.top-vh*0.85-200;
+    endY=scrollY+rect.top-vh*0.15;
+  }
+  function update(){
+    ticking=false;
+    const scrollY=window.scrollY;
+    let progress=0;
+    if(startY!==null&&endY!==startY){progress=(scrollY-startY)/(endY-startY);progress=Math.max(0,Math.min(1,progress));}
+    const n=Math.round(progress*full.length);
+    visibleEl.textContent=full.slice(0,n);
+    cursorEl.style.display=(progress>0&&progress<1)?'inline-block':'none';
+  }
+  function onScroll(){if(!ticking){requestAnimationFrame(update);ticking=true;}}
+  calcBounds();update();
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',function(){calcBounds();update();});
+})();
+</script>
+</body>
+</html>
